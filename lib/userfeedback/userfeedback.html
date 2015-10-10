@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<link rel="import" href="../../../packages/polymer/polymer.html">
+
+<polymer-element name="user-feedback" attributes="username useragent log">
+
+    <template>
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+        <link rel="stylesheet" href="userfeedback.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <form>
+            <div id="title">
+                <input type="text" class="form-input" placeholder="Short title" maxlength="31" hidden?="{{matchingIssue > 0}}" required>
+                <p class="note" hidden?="{{!showMatches}}">
+                    <span hidden?="{{matchingIssue > 0}}">
+                        Please check if any of these issues are similar (click titles for more information), and choose one if it is.
+                        This will add your information to the existing report, rather than creating a duplicate.
+                    </span>
+                    <a href="#" id="clear_match" hidden?="{{matchingIssue == -1}}">Clear match selection</a>
+                </p>
+                <ul id="matches" hidden?="{{!showMatches}}"></ul>
+            </div>
+
+            <div id="description">
+                <textarea class="form-input" placeholder="Describe the problem you're having or feature request"></textarea>
+            </div>
+
+            <div id="submit">
+                <input type="url" class="form-input" id="screenshot" placeholder="Screenshot/Image URL (optional)">
+
+                <select class="form-input" placeholder="Report Type" hidden?="{{matchingIssue > 0}}">
+                    <option value="bug">Bug</option>
+                    <option value="suggestion">Suggestion</option>
+                </select>
+
+                <button type="submit">Preview Report...</button>
+            </div>
+        </form>
+
+        <dialog id="preview">
+            <h1>Previewing Report</h1>
+            <div id="preview-content"></div>
+            <p class="note">
+                <strong>
+                    Your report and any information you include will be public in the
+                    <a href="github.com/ChildrenOfUr/cou-issues/issues" target="_blank">report tracker</a>.
+                </strong>
+                <br>
+                You should also note that this is a <em>bug and feature</em> report form, not a contact form.
+                Any questions will probably not get answered quickly.
+                If you have a question, please <a href="http://childrenofur.com/help/#contact" target="_blank">contact us</a> directly.
+            </p>
+            <button type="reset">Edit</button>
+            <button type="submit">Send Report</button>
+        </dialog>
+
+    </template>
+
+    <!-- Dart -->
+    <script type="application/dart" src="userfeedback.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+
+</polymer-element>

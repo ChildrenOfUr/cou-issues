@@ -1,0 +1,11 @@
+name: coufeedback
+description: CoU user feedback/suggestion/report form
+version: 0.0.1
+
+dependencies:
+  browser: any
+  polymer: ">=0.16.1+4 <0.17.0"
+
+transformers:
+  - polymer:
+      entry_points: web/test.html

@@ -1,0 +1,166 @@
+/* Page */
+
+:host,
+:host input,
+:host textarea,
+:host select,
+:host button {
+    font-family: "Lato", sans-serif !important;
+    color: #4b2e4c;
+    font-size: 14px;
+}
+
+*,
+*:hover,
+*:active,
+*:focus {
+    outline: none;
+}
+
+/* Info */
+
+a {
+    color: teal;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.note {
+    background-color: #d9edf7;
+    color: #31708f;
+    border: 1px solid #bce8f1;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+/* Form */
+
+form div {
+    display: block;
+}
+
+form div:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.form-input,
+button {
+    width: calc(100% - 12px);
+    border: 2px solid #aaa;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-input:focus,
+button:active {
+    border: 2px solid #666;
+}
+
+button:hover {
+    background-color: #fafafa;
+}
+
+form div textarea {
+    resize: vertical;
+}
+
+select.form-input,
+form div button {
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+select.form-input {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#submit input.form-input {
+    width: calc(50% - 2px);
+}
+
+button[type="submit"] {
+    float: right;
+}
+
+/* Related issues */
+
+#matches {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 0;
+    -moz-column-count: 2;
+    -moz-column-gap: 0;
+    column-count: 2;
+    column-gap: 0;
+    background-color: white;
+    max-height: 130px;
+    overflow-y: scroll;
+    border-radius: 8px;
+}
+
+#matches li {
+    padding: 10px;
+}
+
+#matches li:only-child {
+    /* Fix strange column bug */
+    margin-bottom: 20px;
+}
+
+#matches li a {
+    position: relative;
+    top: -2px;
+}
+
+#matches li input[type="radio"] {
+    margin: 0 10px 0 0;
+    position: relative;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Preview dialog */
+
+#preview {
+    top: 0;
+    border: none;
+    height: calc(100% - 32px);
+    max-height: calc(100% - 32px);
+    overflow-y: auto;
+    background-color: #eee;
+}
+
+#preview button {
+    width: auto;
+}
+
+#preview-content {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 4px #444;
+}
+
+#preview-content img {
+    width: 500px;
+    height: auto;
+}
+
+#preview-content pre {
+    max-width: 500px;
+    overflow-x: auto;
+    background-color: #F7F7F7;
+    padding: 5px;
+    font-size: 12px;
+}
