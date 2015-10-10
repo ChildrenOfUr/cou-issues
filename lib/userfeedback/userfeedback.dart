@@ -1,8 +1,10 @@
 library FeedbackReporter;
 
+import "dart:async";
 import "dart:convert";
 import "dart:html";
 import "package:polymer/polymer.dart";
+import "package:transmit/transmit.dart";
 
 @CustomTag("user-feedback")
 class UserFeedback extends PolymerElement {
@@ -194,7 +196,11 @@ class UserFeedback extends PolymerElement {
 		_preview.scrollTop = document.body.scrollTop = shadowRoot.host.scrollTop = 0;
 	}
 
-	void send(Map data) {
+	Future send(Map data) async {
 		// Send to server
+		String serverAddress = "http://server.childrenofur.com:8181/report/add";
+		//await HttpRequest.request(serverAddress, method: "POST", sendData: data);
+		print(data);
+		transmit("REPORT_SENT", data);
 	}
 }
