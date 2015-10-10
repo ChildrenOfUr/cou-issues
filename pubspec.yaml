@@ -5,7 +5,10 @@ version: 0.0.2
 dependencies:
   browser: any
   polymer: ">=0.16.1+4 <0.17.0"
-  transmit: 1.1.0
+  transmit:
+        git:
+          ref: master
+          url: git://github.com/ChildrenOfUr/transmit.git
 
 transformers:
   - polymer:
