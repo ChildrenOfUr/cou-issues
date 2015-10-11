@@ -61,9 +61,7 @@ class UserFeedback extends PolymerElement {
 		shadowRoot.querySelector("#matches").children.clear();
 
 		// Check for matches
-		List<Map<String, dynamic>> matches = _issuesCache.where((Map map) {
-			return map["title"].toLowerCase().contains(_title.value.toLowerCase());
-		}).toList();
+		List<Map<String, dynamic>> matches = RelatedIssues.getMatches(_title.value, _issuesCache);
 
 		if (_title.value.length > 0 && matches.length > 0) {
 			// Create elements if there are matches
