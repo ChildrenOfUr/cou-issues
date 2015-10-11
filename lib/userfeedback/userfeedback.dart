@@ -1,10 +1,11 @@
-library FeedbackReporter;
+library coufeedback;
 
 import "dart:async";
 import "dart:convert";
 import "dart:html";
 import "package:polymer/polymer.dart";
 import "package:transmit/transmit.dart";
+part "package:coufeedback/relatedissues.dart";
 
 @CustomTag("user-feedback")
 class UserFeedback extends PolymerElement {
@@ -198,9 +199,15 @@ class UserFeedback extends PolymerElement {
 
 	Future send(Map data) async {
 		// Send to server
-		String serverAddress = "http://server.childrenofur.com:8181/report/add";
-		//await HttpRequest.request(serverAddress, method: "POST", sendData: data);
-		print(data);
+		//String serverAddress = "http://server.childrenofur.com:8181/report/add";
+		String serverAddress = "http://localhost:8181/report/add";
+		await HttpRequest.request(
+			serverAddress,
+			method: "POST",
+			requestHeaders: {"content-type": "application/json"},
+			sendData: JSON.encode(data)
+		);
 		transmit("REPORT_SENT", data);
+		window.location.reload();
 	}
 }
